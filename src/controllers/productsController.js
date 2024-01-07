@@ -34,12 +34,13 @@ const controller = {
 	// Create -  Method to store
 	store: (req, res) => {
 		const products = getJson();
+		const file = req.file;
 		const {name,
 			price,
 			discount,
 			category,
 			description,
-			image} = req.body;
+			} = req.body;
 		const nuevoId = +Date.now();
 		const newProduct= {
 			id:+nuevoId,
@@ -48,8 +49,7 @@ const controller = {
 			discount:+discount,
 			category,
 			description:description.trim(),
-			image:"default-image.png",
-
+			image: file ? file.filename : "default-image.png"
 		}
 		products.push(newProduct);
 		const json = JSON.stringify(products);
