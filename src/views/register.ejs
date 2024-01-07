@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Formulario de registro'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+	<!-- /Header -->
+
+	<!-- Registro -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Crea tu Usuario</h2>
+			</div>
+		</div>
+		<div class="col-12">
+			<form action="/users/register" method="POST" >
+				<div class="row product-detail">
+					<div class="col-12 col-md-6">
+						<label for="name" class="form-label">Nombre:</label>
+						<input type="text" id="name" name="name" class="form-input" value ="<%=locals.old && old.name%>">
+						<p><%= locals.error && error.name ? error.name.msg : null %> </p>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="lastname" class="form-label">Apellido:</label>
+						<input type="text" id="lastname" name="lastname"  class="form-input" value ="<%=locals.old && old.lastname%>">
+						<p><%= locals.error && error.lastname ? error.lastname.msg : null %> </p>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="email" class="form-label">E-mail:</label>
+						<input type="email" id="email"  class="form-input" value ="<%=locals.old && old.email%>">
+						<p><%= locals.error && error.email ?error.email.msg : null %> </p>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="password" class="form-label">Contraseña:</label>
+						<input type="password" id="password" name="password" class="form-input">
+						<p><%= locals.error && error.password ?error.password.msg : null %> </p>
+					</div>
+					<div class="col-12">
+						<button type="submit" class="buy-now-button">Guardar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- /product detail -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+
+</body>	
+</html>
